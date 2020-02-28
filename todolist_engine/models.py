@@ -11,7 +11,7 @@ class Item(models.Model):
         verbose_name_plural = 'Todo items'
         ordering = ['-add_timestamp', 'is_done']
 
-    user = models.ForeignKey('User', on_delete=models.CASCADE, null=False, blank=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     todo_title = models.TextField(null=False, blank=False)
     todo_description = models.TextField(null=False, blank=False)
     slug = models.CharField(max_length=256)
