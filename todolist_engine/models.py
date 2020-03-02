@@ -3,7 +3,7 @@ from django.db import models
 class Item(models.Model):
     class Meta:
         verbose_name='Todo item'
-        verbose_prular_name='Todo items'
+        verbose_name_plural='Todo items'
         ordering=['-add_timestamp']
 
     description = models.TextField()
