@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todolist_engine.apps.TodolistEngineConfig'
+    'django_js_reverse',
+    'rest_framework',
+    'todolist_engine.apps.TodolistEngineConfig',
+    'frontend.apps.FrontendConfig'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'todolist.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -101,6 +104,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# JS REVERSE CONFIG
+JS_REVERSE_JS_VAR_NAME = 'Urls'
+JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'this'
+JS_REVERSE_JS_MINIFY = False
+JS_REVERSE_EXCLUDE_NAMESPACES = ['admin', ]
+JS_REVERSE_SCRIPT_PREFIX = ''
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -118,4 +129,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'common_static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

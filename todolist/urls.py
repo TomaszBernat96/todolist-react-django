@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from frontend.views import application_entry
+from todolist_engine.views import application_view
 
 urlpatterns = [
+    # path('', application_entry, name='applicationEntry'),
+    path('', application_view, name='applicationView'),
     path('admin/', admin.site.urls),
     path('inner-api/', include('inner_api.api.urls'))
 ]
